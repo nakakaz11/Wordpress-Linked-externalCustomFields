@@ -1,0 +1,306 @@
+// import
+@import "viewer.less";
+
+/* smp by SW 2012 */
+// 仮枠
+#smpSlideDiv1 {
+  width: 100%;
+  //width: 480px;
+  position: relative;
+
+}
+#smpSlideDiv2 {
+  width: 100%;
+  //width: 480px;
+  position: relative;
+
+}
+.centerBoxSMP {
+  margin: 20px auto;
+}
+
+// 定義部分
+@baseClSMP: #ddd8c6;
+@respHeight: 60px; // 高さかっちり
+// Base Grad @ 継承
+.lrGradSMP {
+/*  @baseA: #e0f3fa;
+  @baseB: #d8f0fc;
+  @baseC: #b9e2f6;
+  @baseD: #b6dffd;*/
+  @baseA: #e8e9db;
+  @baseB: #ddd8cf;
+  @baseC: #d9d6c0;
+  @baseD: #ddd8c6;
+  background: @baseA;
+  background: -moz-linear-gradient(top,  @baseA 0%, @baseB 50%, @baseC 51%, @baseD 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@baseA), color-stop(50%,@baseB), color-stop(51%,@baseC), color-stop(100%,@baseD));
+  background: -webkit-linear-gradient(top,  @baseA 0%, @baseB 50%, @baseC 51%, @baseD 100%);
+  background: linear-gradient(to bottom,  @baseA 0%, @baseB 50%, @baseC 51%, @baseD 100%);
+
+}
+.mainGradSMP { //メインのグラデ
+/*
+  @baseA: #f3f3f3;
+  @baseB: #dbdbdb;
+  @baseC: #cacaca;
+  @baseD: #dcdcdc;
+
+  background: @baseA;
+  background: -moz-linear-gradient(top,  @baseA 0%, @baseB 50%, @baseC 51%, @baseD 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@baseA), color-stop(50%,@baseB), color-stop(51%,@baseC), color-stop(100%,@baseD));
+  background: -webkit-linear-gradient(top,  @baseA 0%, @baseB 50%, @baseC 51%, @baseD 100%);
+  background: linear-gradient(to bottom,  @baseA 0%, @baseB 50%, @baseC 51%, @baseD 100%);
+*/
+  @baseD: #f3f3f3;
+  @baseC: #e7e7e7;
+  @baseB: #d8d8d8;
+  @baseA: #dcdcdc;
+
+  background: @baseA;
+  background: -moz-linear-gradient(top,  @baseA 0%, @baseB 11%, @baseC 61%, @baseD 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@baseA), color-stop(11%,@baseB), color-stop(61%,@baseC), color-stop(100%,@baseD));
+  background: -webkit-linear-gradient(top,  @baseA 0%, @baseB 11%, @baseC 61%, @baseD 100%);
+  background: linear-gradient(to bottom,  @baseA 0%, @baseB 11%, @baseC 61%, @baseD 100%);
+
+
+}
+.lrWidSMP { // 矢印の幅
+  width: 30px;
+  height: @respHeight;
+}
+  .lrBgSMP {
+  -webkit-background-size: 15px 24px !important;
+  background-size:50%;
+  width: 30px;
+  height: 100%;
+  }
+
+// slideSMP
+.smpSlide_box {
+  border-top: 1px solid @baseClSMP;
+  border-bottom: 1px solid @baseClSMP;
+  display: table;
+  width: 100%;
+  height: @respHeight;
+  position: relative;
+}
+.lArSMP {
+    border-right: 1px solid @baseClSMP;
+    .lrGradSMP;
+    .lrWidSMP;
+    display: table-cell;
+
+    & .lrBgSMP{
+      &.lrBgB1 { background: url("../img/arrSMP_s01.png") no-repeat center ;
+      }
+    }
+  }
+.rArSMP {
+    border-left: 1px solid @baseClSMP;
+    .lrGradSMP;
+    .lrWidSMP;
+    display: table-cell;
+
+    & .lrBgSMP{
+      &.lrBgB2 { background: url("../img/arrSMP_s02.png") no-repeat center ;
+      }
+    }
+  }
+
+.innerSMP{
+  //width: 100%;
+  height: @respHeight;
+  display: table;
+  vertical-align:middle;
+}
+.viewSMP{
+  .mainGradSMP;
+  display: table-cell;
+  width: 99%;
+  vertical-align:middle;
+  height: @respHeight;
+  position: relative;
+}
+.phSMP {
+    width: 73px;
+    height: 100%;
+    padding: 0.3em;
+    display: table-cell;
+    vertical-align:middle;
+    text-align:center;
+    & img {
+      width: 64px;
+      height: 36px;
+      display: table-cell;
+      vertical-align:middle;
+
+    }
+}
+.txtSMP {
+    width: 99%;
+    height: @respHeight;
+    color: #5c7a9b;
+    font-size: 1em;
+    display: table-cell;
+    vertical-align:middle;
+    text-align:left;
+    overflow: hidden;
+}
+
+body {
+  color: #5c7a9b;
+  text-shadow: 1px 1px 0px #fff;
+
+}
+body a.roll {
+  text-shadow: none;
+}
+
+
+.test {
+}
+
+
+/* SW_Slideshow用 */
+#sw_slides {
+    width: 100%;
+    position: relative;
+}
+.sw_slides_control {
+
+    //width: 100%;
+}
+// コンテナと子供は、レスポンシブで対応するっぺ
+@slideWidth : 100%; // コンテナ幅定義(Default)   880px
+div.sw_slides_container {
+    width:@slideWidth;
+    /*display:none;*/
+    position: relative;
+    margin: 0 auto;
+/*
+  @baseD: #f3f3f3;
+  @baseC: #e7e7e7;
+  @baseB: #d8d8d8;
+  @baseA: #dcdcdc;
+
+  background: @baseA;
+  background: -moz-linear-gradient(top,  @baseA 0%, @baseB 11%, @baseC 61%, @baseD 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@baseA), color-stop(11%,@baseB), color-stop(61%,@baseC), color-stop(100%,@baseD));
+  background: -webkit-linear-gradient(top,  @baseA 0%, @baseB 11%, @baseC 61%, @baseD 100%);
+  background: linear-gradient(to bottom,  @baseA 0%, @baseB 11%, @baseC 61%, @baseD 100%);*/
+
+}
+div.sw_slides_containerCld {
+    width:@slideWidth;
+    display:block;
+    //position: absolute;
+    //top: 50%;
+    //margin-top: -1em;
+
+}
+
+/*++++++++++++++++++++++++++++++++ Media Queries for Mobile Support */
+/* 940px */
+@media only screen
+and (max-width : 940px) {
+  div.sw_slides_container ,
+  div.sw_slides_containerCld { //width:790px ;
+  }
+}
+/*++++++++++++++++++++++++++++++++ Media Queries for Mobile Support */
+/*　850px */
+@media only screen
+and (max-width : 850px) {
+  div.sw_slides_container ,
+  div.sw_slides_containerCld { //width:420px ;
+  }
+}
+/*++++++++++++++++++++++++++++++++ Media Queries for Mobile Support */
+/* 480px */
+@media only screen
+and (max-width : 480px) {
+  div.sw_slides_container ,
+  div.sw_slides_containerCld { //width:280px ;
+  }
+}
+/*++++++++++++++++++++++++++++++++ Media Queries for Mobile Support */
+/* 320px */
+@media only screen
+and (max-width : 320px) {
+  div.sw_slides_container ,
+  div.sw_slides_containerCld { //:255px ;
+  }
+}
+
+// ページネーション（あとで解析。いまは隠す）
+.sw_pagenate1,
+.sw_pagination {
+  display: none;
+}
+
+// 左右ナビゲーション
+.sw_pagenatePrev ,
+.sw_pagenateNext {
+  display: block;
+  width: 30px;
+  height: 100%;
+}
+
+/* swLink aの3d装飾用（素CSS） */
+a {
+    text-decoration: none;
+    color: hsl(206, 80%, 50%);
+}
+.roll {
+    display: inline-block;
+    overflow: hidden;
+
+    vertical-align: top;
+
+    -webkit-perspective: 400px;
+       -moz-perspective: 400px;
+
+    -webkit-perspective-origin: 50% 50%;
+       -moz-perspective-origin: 50% 50%;
+}
+.roll span {
+    display: block;
+    position: relative;
+    padding: 0 2px;
+
+    -webkit-transition: all 400ms ease;
+       -moz-transition: all 400ms ease;
+
+    -webkit-transform-origin: 50% 0%;
+       -moz-transform-origin: 50% 0%;
+
+    -webkit-transform-style: preserve-3d;
+       -moz-transform-style: preserve-3d;
+}
+.roll:hover span, .roll.hover span {
+    background: #ceeaff;
+    border-radius: 4px;
+
+    -webkit-transform: translate3d( 0px, 0px, -30px ) rotateX( 90deg );
+       -moz-transform: translate3d( 0px, 0px, -30px ) rotateX( 90deg );
+}
+.roll span:after {
+    content: attr(data-title);
+
+    border-radius: 4px;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0 2px;
+
+    color: #fff;
+    background: hsl(197, 65%, 49%);
+
+    -webkit-transform-origin: 50% 0%;
+       -moz-transform-origin: 50% 0%;
+
+    -webkit-transform: translate3d( 0px, 105%, 0px ) rotateX( -90deg );
+       -moz-transform: translate3d( 0px, 105%, 0px ) rotateX( -90deg );
+}​

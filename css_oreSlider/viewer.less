@@ -1,0 +1,333 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+/* new clearfix */
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+* html .clearfix {
+  zoom: 1;
+}
+/* IE6 */
+*:first-child + html .clearfix {
+  zoom: 1;
+}
+/* IE7 */
+
+html {background-color: transparent;}
+body {
+  -webkit-text-size-adjust: none;
+}
+
+
+
+.a_fl_R {
+  float: right;
+}
+.a_fl_L {
+  float: left;
+}
+.a_hidden {
+  display: none;
+}
+.a_overhidden {
+  overflow: hidden;
+}
+.b_padB10 {
+  padding-bottom: 10px;
+}
+.b_padB20 {
+  padding-bottom: 20px;
+}
+.b_mrgCT {
+  padding: 0 auto;
+}
+
+.pcDom {
+  width: 640px;
+  padding: 0;
+  text-align: center;
+  margin: 0 auto;
+}
+.spDom {
+  /*width: 320px;*/
+
+  padding: 0;
+  text-align: center;
+  padding: 10px auto;
+  background: #FFFFFF;
+}
+.sp_title {
+  background: #FFFFFF;
+  padding: 10px;
+}
+/*
+#nowLoading{ position:absolute; top:200px; left:43%;}
+#loader { width:50px; height:75px; margin:0 auto;} 
+.nowLoading p { text-align:center; }
+*/
+.centerBox {
+
+}
+#viewer_box {
+  position: relative;
+  // se add
+  margin: 0 auto;
+  width: 640px;
+
+}
+#viewer_box_btnLL {
+  position: absolute;
+  top: 0px;
+}
+#nowLoading {
+  position: absolute;
+  font-size: 9px;
+}
+#loader {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+}
+.nowLoading p {
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------------------------------
+  SW　定義部分  http://less-ja.studiomohawk.com/　をご参考に〜〜
+ */
+// Base Grad @
+@baseA: #494949;
+@baseB: #282828;
+@baseC: #1d1d1d;
+@borderColor: #6f6f6f;
+@shadowColor: #666666;
+@udrcolOutRL : #2b2d2f;
+@udrcolInRL : #4c5153;
+@pcFontColor: #ffffff;
+@vRadius:6px;
+
+
+// Single Corner Border Radius
+.border-top-left-radius(@vRadius) {
+  -webkit-border-top-left-radius: @vRadius;
+      -moz-border-radius-topleft: @vRadius;
+          border-top-left-radius: @vRadius;
+}
+.border-top-right-radius(@vRadius) {
+  -webkit-border-top-right-radius: @vRadius;
+      -moz-border-radius-topright: @vRadius;
+          border-top-right-radius: @vRadius;
+}
+.border-bottom-right-radius(@vRadius) {
+  -webkit-border-bottom-right-radius: @vRadius;
+      -moz-border-radius-bottomright: @vRadius;
+          border-bottom-right-radius: @vRadius;
+}
+.border-bottom-left-radius(@vRadius) {
+  -webkit-border-bottom-left-radius: @vRadius;
+      -moz-border-radius-bottomleft: @vRadius;
+          border-bottom-left-radius: @vRadius;
+}
+// #vHeader class
+.topGrad {
+   @base1: spin(@baseA, 0);  //darken($1, $2)  saturate() fadein()
+   @base2: spin(@baseB, 0);
+   @base3: spin(@baseC, 0);
+
+   background: @base1;
+   background: -moz-linear-gradient(top, @base1 0%, @base2 40%, @base3 100%);
+   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@base1), color-stop(40%,@base2), color-stop(100%,@base3));
+   background: -webkit-linear-gradient(top, @base1 0%,@base2 40%,@base3 100%);
+   background: -o-linear-gradient(top, @base1 0%,@base2 40%,@base3 100%);
+   background: -ms-linear-gradient(top, @base1 0%,@base2 40%,@base3 100%);
+   background: linear-gradient(to bottom, @base1 0%,@base2 40%,@base3 100%);
+ // IE
+   filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@base1),argb(@base3))); // IE9 and down
+ }
+
+//Liner
+.gradLiner(@topcol:#000000, @bottomcol:#ffffff) {
+  background: @topcol;
+  background: -moz-linear-gradient(top, @topcol 0%, @bottomcol 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@topcol), color-stop(100%,@bottomcol));
+  background: -webkit-linear-gradient(top, @topcol 0%,@bottomcol 100%);
+  background: -o-linear-gradient(top, @topcol 0%,@bottomcol 100%);
+  background: -ms-linear-gradient(top, @topcol 0%,@bottomcol 100%);
+  background: linear-gradient(to bottom, @topcol 0%,@bottomcol 100%);
+// IE
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@topcol),argb(@bottomcol))); // IE9 and down
+}
+
+.pcFontSet{
+  line-height: 1.5em;
+  font-size: 12px;
+  color: @pcFontColor;
+}
+
+/* --------------------------------------------------------------------------------------------------
+ mixin ヘッダのグラデ */
+#vHeader {
+  .topGrad;
+   border: 1px solid darken(@borderColor, 15);
+
+  .border-top-left-radius(@vRadius);
+  .border-top-right-radius(@vRadius);
+  .border-bottom-right-radius(0px);
+  .border-bottom-left-radius(0px);
+
+
+   width: 640px;  //642px
+   height: 56px;  //58px
+}
+#vWrapHeader{
+  background: @baseA;
+
+  .border-top-left-radius(@vRadius);
+  .border-top-right-radius(@vRadius);
+  .border-bottom-right-radius(0px);
+  .border-bottom-left-radius(0px);
+
+  border-top: 1px solid @baseC;
+  border-bottom: 1px solid @baseC;
+  border-left: 1px solid @baseC;
+  border-right: 1px solid @baseC;
+
+ -ms-box-shadow: 0 0 5px @shadowColor;
+ -moz-box-shadow: 0 0 5px @shadowColor;
+ -webkit-box-shadow: 0 0 5px @shadowColor;
+
+  width: 642px;
+
+}
+
+#vWrapBot{
+  background: @baseA;
+
+/*
+  .border-top-left-radius(@vRadius);
+  .border-top-right-radius(@vRadius);
+  .border-bottom-right-radius(0px);
+  .border-bottom-left-radius(0px);
+*/
+
+  border-top: 0px solid @baseC;
+  border-bottom: 1px solid @baseC;
+  border-left: 1px solid @baseC;
+  border-right: 1px solid @baseC;
+
+ -ms-box-shadow: 0 0 5px @shadowColor;
+ -moz-box-shadow: 0 0 5px @shadowColor;
+ -webkit-box-shadow: 0 0 5px @shadowColor;
+
+  width: 642px;
+  /*height: 552px;*/
+
+  position: relative;
+}
+// EndOf sw
+
+/* ********************************************/
+.pc_title_box{
+  padding: 16px 10px 0px 14px;
+  position: relative;
+}
+.pc_title{
+  color: #ffffff;
+  font-size: 18px;
+}
+.pc_under_box_outer{
+  border-left: 1px solid @udrcolOutRL;
+  border-right: 1px solid @udrcolOutRL;
+  border-bottom: 1px solid #2a2c2e;
+}
+.pc_under_box_inner{
+  border-top: 1px solid #3f4245;
+  border-left:1px solid @udrcolInRL;
+  border-right: 1px solid @udrcolInRL;
+  border-bottom: 1px solid #4b4f52;
+  
+  background: url("../img/pc_udr_bg.jpg");
+  padding: 7px 9px;
+}
+.pc_under_data{
+  text-align: right;
+  height: 57px;
+
+  .pcFontSet;
+}
+.pc_btnOpenMeta{
+  text-align: right;
+  a {
+    background: url("../img/btnOpenMeta.gif") no-repeat;
+    width: 135px;
+    height: 25px;
+    display: block;
+    .a_fl_R;
+
+    &:hover{ background-position: 0px -25px;}
+  }
+
+  span { display: none;}
+
+}
+.pc_btnCloseMeta{
+  text-align: right;
+  a {
+    background: url("../img/btnCloseMeta.gif") no-repeat;
+    width: 135px;
+    height: 25px;
+    display: block;
+    .a_fl_R;
+
+    &:hover{ background-position: 0px -25px;}
+  }
+
+  span { display: none;}
+
+}
+
+.pc_meta_base{
+  position: absolute;
+  width: 493px;
+  height: 150px;
+  top: 365px;
+  left: 5px;
+  z-index: 5;
+}
+.pc_meta_box{
+  .gradLiner(#1a1d1e,#25282a);
+  padding:1px;
+  position: absolute;
+  bottom: 0px;
+  width: 478px;
+}
+.pc_meta_inner{
+  background: #2b2e31;
+  box-shadow: 3px 3px 5px 0 rgba(0, 0, 17, 0.1) inset;
+  padding: 5px;
+
+}
+.pc_meta{
+  height: 70px;
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  li {
+    .pcFontSet;
+    padding: 2px 3px;
+  }
+
+}
+
+.pc_meta_no_off(@id){  background: url("../img/metaNo_off.gif") no-repeat; width: 19px; height: 19px; display: inline-block; background-position: -19px*@id 0px; }
+.pc_meta_off_1{ .pc_meta_no_off(0); }
+.pc_meta_off_2{ .pc_meta_no_off(1); }
